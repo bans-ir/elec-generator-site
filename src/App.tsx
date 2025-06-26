@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ElecHomePage from '@components/pages/ElecHome'
 import ElecIndustry from '@components/pages/ElecIndustry'
 import ElecProductPage from '@components/pages/ElecProduct'
+import GetPhoneNumberPage from '@components/pages/GetPhoneNumber'
 import HomePage from '@components/pages/Home'
 import ReceiptPage from '@components/pages/Receipt'
 
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
     {
         path: '/elec-product',
         element: <ElecProductPage />
+    },
+    {
+        path: '/phone-number',
+        element: <GetPhoneNumberPage />
     },
     {
         path: '/receipt',

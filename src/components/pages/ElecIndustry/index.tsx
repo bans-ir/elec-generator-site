@@ -242,7 +242,7 @@ const ElecIndustryPage = () => {
                 <MButton
                     onClick={() =>
                         navigate(
-                            `/receipt?kw=${items.reduce(
+                            `/phone-number?kw=${items.reduce(
                                 (acc, item) => acc + item.value * item.count,
                                 0
                             )}&rt_url=elec-industry`
@@ -250,7 +250,7 @@ const ElecIndustryPage = () => {
                     }
                     className='w-full mt-auto btn-lg'
                 >
-                    ذخیره اطلاعات <Save />
+                    محاسبه توان <Save />
                 </MButton>
             </div>
         </div>
