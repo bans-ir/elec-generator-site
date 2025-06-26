@@ -1,0 +1,99 @@
+{
+    "items": [
+        {
+            "title": "لامپ LED 10 وات",
+            "value": 10,
+            "icon": "Lightbulb"
+        },
+        {
+            "title": "لامپ LED 15 وات",
+            "value": 15,
+            "icon": "Lightbulb"
+        },
+        {
+            "title": "لامپ LED 25 وات",
+            "value": 25,
+            "icon": "Lightbulb"
+        },
+        {
+            "title": "لامپ LED 40 وات",
+            "value": 40,
+            "icon": "Lightbulb"
+        },
+        {
+            "title": "لامپ LED 50 وات",
+            "value": 50,
+            "icon": "Lightbulb"
+        },
+        {
+            "title": "لامپ LED 100 وات",
+            "value": 100,
+            "icon": "Lightbulb"
+        },
+        {
+            "title": "کولر گازی 9000 BTU",
+            "value": 900,
+            "icon": "Snowflake"
+        },
+        {
+            "title": "کولر گازی 12000 BTU",
+            "value": 1200,
+            "icon": "Snowflake"
+        },
+        {
+            "title": "کولر گازی 18000 BTU",
+            "value": 1800,
+            "icon": "Snowflake"
+        },
+        {
+            "title": "کولر گازی 22000 BTU",
+            "value": 2200,
+            "icon": "Snowflake"
+        },
+        {
+            "title": "کولر گازی 28000 BTU",
+            "value": 2700,
+            "icon": "Snowflake"
+        },
+        {
+            "title": "کولر گازی 30000 BTU",
+            "value": 3200,
+            "icon": "Snowflake"
+        },
+        {
+            "title": "تلویزیون 200 وات",
+            "value": 200,
+            "icon": "Tv"
+        },
+        {
+            "title": "کولر آبی متوسط 500 وات",
+            "value": 500,
+            "icon": "Wind"
+        },
+        {
+            "title": "یخچال ویترینی ایستاده 800 وات",
+            "value": 800,
+            "icon": "Refrigerator"
+        },
+        {
+            "title": "صندوق فروشگاهی (POS + مانیتور) 200 وات",
+            "value": 200,
+            "icon": "Monitor"
+        },
+        {
+            "title": "دستگاه کارتخوان (POS) 15 وات",
+            "value": 15,
+            "icon": "CreditCard"
+        },
+        {
+            "title": "قهوه‌ساز یا مایکروفر 1500 وات",
+            "value": 1500,
+            "icon": "Coffee"
+        },
+        {
+            "title": "دوربین‌های مدار بسته 500 وات",
+            "value": 500,
+            "icon": "Video"
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+@font-face {
+  font-family: "Tanha-FD-WOL";
+  src: url("./../fonts/Tanha/Tanha-FD-WOL.eot");
+  src: url("./../fonts/Tanha/Tanha-FD-WOL.eot?#iefix")
+      format("Tanha-FD-WOL-opentype"),
+    url("./../fonts/Tanha/Tanha-FD-WOL.woff") format("woff"),
+    url("./../fonts/Tanha/Tanha-FD-WOL.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Vazir-FD-WOL";
+  src: url("./../fonts/Vazir/Vazir-FD-WOL.eot");
+  src: url("./../fonts/Vazir/Vazir-FD-WOL.eot?#iefix") format("embedded-opentype"),
+    url("./../fonts/Vazir/Vazir-FD-WOL.woff2") format("woff2"),
+    url("./../fonts/Vazir/Vazir-FD-WOL.woff") format("woff"),
+    url("./../fonts/Vazir/Vazir-FD-WOL.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Vazir-FD-WOL";
+  src: url("./../fonts/Vazir/Vazir-Light-FD-WOL.eot");
+  src: url("./../fonts/Vazir/Vazir-Light-FD-WOL.eot?#iefix") format("embedded-opentype"),
+    url("./../fonts/Vazir/Vazir-Light-FD-WOL.woff2") format("woff2"),
+    url("./../fonts/Vazir/Vazir-Light-FD-WOL.woff") format("woff"),
+    url("./../fonts/Vazir/Vazir-Light-FD-WOL.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Vazir-FD-WOL";
+  src: url("./../fonts/Vazir/Vazir-Medium-FD-WOL.eot");
+  src: url("./../fonts/Vazir/Vazir-Medium-FD-WOL.eot?#iefix") format("embedded-opentype"),
+    url("./../fonts/Vazir/Vazir-Medium-FD-WOL.woff2") format("woff2"),
+    url("./../fonts/Vazir/Vazir-Medium-FD-WOL.woff") format("woff"),
+    url("./../fonts/Vazir/Vazir-Medium-FD-WOL.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Vazir-FD-WOL";
+  src: url("./../fonts/Vazir/Vazir-Bold-FD-WOL.eot");
+  src: url("./../fonts/Vazir/Vazir-Bold-FD-WOL.eot?#iefix") format("embedded-opentype"),
+    url("./../fonts/Vazir/Vazir-Bold-FD-WOL.woff2") format("woff2"),
+    url("./../fonts/Vazir/Vazir-Bold-FD-WOL.woff") format("woff"),
+    url("./../fonts/Vazir/Vazir-Bold-FD-WOL.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}

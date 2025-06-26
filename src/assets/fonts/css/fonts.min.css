@@ -1,0 +1,37 @@
+@font-face {
+  font-family: "BBadr";
+  src: url("../fonts/BBadr.eot?#") format("eot"),
+    url("../fonts/BBadr.woff") format("woff"),
+    url("../fonts/BBadr.ttf") format("truetype");
+}
+@font-face {
+  font-family: "BFantezy";
+  src: url("../fonts/BFantezy.eot?#") format("eot"),
+    url("../fonts/BFantezy.woff") format("woff"),
+    url("../fonts/BFantezy.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "BHamid";
+  src: url("../fonts/BHamid.eot?#") format("eot"),
+    url("../fonts/BHamid.woff") format("woff"),
+    url("../fonts/BHamid.ttf") format("truetype");
+}
+@font-face {
+  font-family: "BHoma";
+  src: url("../fonts/BHoma.eot?#") format("eot"),
+    url("../fonts/BHoma.woff") format("woff"),
+    url("../fonts/BHoma.ttf") format("truetype");
+}
+@font-face {
+  font-family: "BSinaBold";
+  src: url("../fonts/BSinaBold.eot?#") format("eot"),
+    url("../fonts/BSinaBold.woff") format("woff"),
+    url("../fonts/BSinaBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "BTitrBold";
+  src: url("../fonts/BTitrBold.eot?#") format("eot"),
+    url("../fonts/BTitrBold.woff") format("woff"),
+    url("../fonts/BTitrBold.ttf") format("truetype");
+}
