@@ -33,7 +33,7 @@ const GetPhoneNumberPage = () => {
         }
         setLoading(true)
         try {
-            await axios.post('http://localhost:5000/phone', { phoneNumber })
+            await axios.post('http://power.bans.ir/api/phone', { phoneNumber })
             // Optionally handle success (e.g., show a message or redirect)
 
             navigate(`/receipt?kw=${value}&rt_url=${returnUrl}`)
