@@ -11,6 +11,7 @@
         "generate-pwa-assets": "pwa-assets-generator --preset minimal public/logo.ico"
     },
     "dependencies": {
+        "@mantine/core": "^8.1.2",
         "@svgr/rollup": "^8.1.0",
         "@tailwindcss/vite": "^4.1.8",
         "@types/moment-jalaali": "^0.7.9",
