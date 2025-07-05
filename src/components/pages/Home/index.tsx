@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
 
-import ElecHomeImage from '@assets/images/elec-home.jpg'
-import ElecIndustryImage from '@assets/images/Elec-industryjpg.jpg'
-import ElecProductImage from '@assets/images/electrical-equipment.avif'
+import ElecHomeImage from '@assets/images/elec-home.png'
+import ElecIndustryImage from '@assets/images/Elec-industryjpg.png'
+import ElecProductImage from '@assets/images/electrical-equipment.png'
 const HomePage = () => {
     return (
         <div className='w-full h-full flex flex-col items-center justify-center relative'>
             <h1 className='text-2xl relative xl:absolute xl:top-2 mb-5'>نرم افزار محاسبه انرژی</h1>
 
-            <div className='grid xl:grid-cols-3 gap-5'>
+            <div dir='rtl' className='grid md:grid-cols-2 xl:grid-cols-3 gap-5'>
                 <Link
                     to={'/elec-product'}
                     className='relative flex flex-col items-center justify-center group cursor-pointer'
@@ -17,7 +17,7 @@ const HomePage = () => {
                         <img
                             src={ElecProductImage}
                             alt='elec home'
-                            className='w-full h-[200px] object-cover rounded-t-xl mb-5 group-hover:scale-105 duration-300'
+                            className='w-full h-[100px] xl:h-[200px] object-center object-contain p-2 md:p-4 rounded-t-xl mb-2 md:mb-5 group-hover:scale-105 duration-300'
                         />
                         <div className='px-3 pb-6 flex flex-col items-center justify-center'>
                             <h2 className='text-2xl mb-1'>تجاری</h2>
@@ -34,7 +34,7 @@ const HomePage = () => {
                         <img
                             src={ElecIndustryImage}
                             alt='elec home'
-                            className='w-full h-[200px] object-cover rounded-t-xl mb-5 group-hover:scale-105 duration-300'
+                            className='w-full h-[100px] xl:h-[200px] object-center object-contain p-2 md:p-4 rounded-t-xl mb-2 md:mb-5 group-hover:scale-105 duration-300'
                         />
                         <div className='px-3 pb-6 flex flex-col items-center justify-center'>
                             <h2 className='text-2xl mb-1'>صنعتی</h2>
@@ -51,7 +51,7 @@ const HomePage = () => {
                         <img
                             src={ElecHomeImage}
                             alt='elec home'
-                            className='w-full h-[200px] object-cover rounded-t-xl mb-5 group-hover:scale-105 duration-300'
+                            className='w-full h-[100px] xl:h-[200px] object-center object-contain p-2 md:p-4 rounded-t-xl mb-2 md:mb-5 group-hover:scale-105 duration-300'
                         />
                         <div className='px-3 pb-6 flex flex-col items-center justify-center'>
                             <h2 className='text-2xl mb-1'>خانگی</h2>

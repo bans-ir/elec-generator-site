@@ -33,7 +33,7 @@ const GetPhoneNumberPage = () => {
         }
         setLoading(true)
         try {
-            await axios.post('http://localhost:5000/phone', { phoneNumber })
+            await axios.post('http://localhost:5000/phone', { phoneNumber, value })
             // Optionally handle success (e.g., show a message or redirect)
 
             navigate(`/receipt?kw=${value}&rt_url=${returnUrl}`)
@@ -71,10 +71,13 @@ const GetPhoneNumberPage = () => {
                 </div>
                 <MButton className='w-full mt-auto btn-lg' onClick={handleSave} disabled={loading}>
                     {loading ? (
-                        'در حال ارسال...'
+                        <div>
+                            در حال ارسال...
+                            <div className='loading loading-dots'></div>
+                        </div>
                     ) : (
                         <>
-                            ذخیره اطلاعات <Save />
+                            ارسال اطلاعات <Save />
                         </>
                     )}
                 </MButton>

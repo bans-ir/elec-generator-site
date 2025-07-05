@@ -21,41 +21,8 @@ import { MButton } from '@components/atoms/MButton'
 
 const ITEMS_LIST = [
     {
-        title: 'لامپ LED 10 وات',
+        title: 'لامپ LED',
         value: 10,
-        count: 0,
-        icon: <Lightbulb size={24} />
-    },
-    {
-        title: 'لامپ LED 15 وات',
-        value: 15,
-        count: 0,
-
-        icon: <Lightbulb size={24} />
-    },
-    {
-        title: 'لامپ LED 25 وات',
-        value: 25,
-        count: 0,
-
-        icon: <Lightbulb size={24} />
-    },
-    {
-        title: 'لامپ LED 40 وات',
-        value: 40,
-
-        count: 0,
-        icon: <Lightbulb size={24} />
-    },
-    {
-        title: 'لامپ LED 50 وات',
-        value: 50,
-        count: 0,
-        icon: <Lightbulb size={24} />
-    },
-    {
-        title: 'لامپ LED 100 وات',
-        value: 100,
         count: 0,
         icon: <Lightbulb size={24} />
     },

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 
 import { ArrowLeft, Save } from 'lucide-react'
 
@@ -13,6 +13,8 @@ const LIST = {
             title: 'ژنراتور',
             value: 1,
             price: 30000000,
+            minKW: 1000,
+            maxKW: 1000,
             isInvertor: true,
             image: GeneratorImage
         },
@@ -20,6 +22,8 @@ const LIST = {
             title: 'ژنراتور',
             value: 1,
             price: 15000000,
+            minKW: 1000,
+            maxKW: 1000,
             isInvertor: false,
             image: GeneratorImage
         },
@@ -27,6 +31,8 @@ const LIST = {
             title: 'ژنراتور',
             value: '1 - 2',
             price: 65000000,
+            minKW: 1000,
+            maxKW: 2000,
             isInvertor: true,
             image: GeneratorImage
         },
@@ -34,6 +40,8 @@ const LIST = {
             title: 'ژنراتور',
             value: '1 - 2',
             price: 30000000,
+            minKW: 1000,
+            maxKW: 2000,
             isInvertor: false,
             image: GeneratorImage
         },
@@ -41,6 +49,8 @@ const LIST = {
             title: 'ژنراتور',
             value: '2 - 3',
             price: 85000000,
+            minKW: 2000,
+            maxKW: 3000,
             isInvertor: true,
             image: GeneratorImage
         },
@@ -48,6 +58,8 @@ const LIST = {
             title: 'ژنراتور',
             value: '2 - 3',
             price: 40000000,
+            minKW: 2000,
+            maxKW: 3000,
             isInvertor: false,
             image: GeneratorImage
         },
@@ -55,6 +67,8 @@ const LIST = {
             title: 'ژنراتور',
             value: '3 - 5',
             price: 110000000,
+            minKW: 3000,
+            maxKW: 5000,
             isInvertor: true,
             image: GeneratorImage
         },
@@ -62,6 +76,8 @@ const LIST = {
             title: 'ژنراتور',
             value: '3 - 5',
             price: 55000000,
+            minKW: 3000,
+            maxKW: 5000,
             isInvertor: false,
             image: GeneratorImage
         },
@@ -69,6 +85,8 @@ const LIST = {
             title: 'ژنراتور',
             value: '5 - 8',
             price: 145000000,
+            minKW: 5000,
+            maxKW: 8000,
             isInvertor: true,
             image: GeneratorImage
         },
@@ -77,6 +95,8 @@ const LIST = {
             value: '5 - 8',
             price: 70000000,
             isInvertor: false,
+            minKW: 5000,
+            maxKW: 8000,
             image: GeneratorImage
         },
         {
@@ -84,6 +104,8 @@ const LIST = {
             value: '8 - 10',
             price: 180000000,
             isInvertor: true,
+            minKW: 8000,
+            maxKW: 10000,
             image: GeneratorImage
         },
         {
@@ -91,23 +113,43 @@ const LIST = {
             value: '8 - 10',
             price: 90000000,
             isInvertor: false,
+            minKW: 8000,
+            maxKW: 10000,
             image: GeneratorImage
         }
     ]
 }
 
 const ReceiptPage = () => {
-    const [, setValue] = useState<string>()
-    const [, setReturnUrl] = useState<string>()
-    const [type, setType] = useState<keyof typeof LIST>('oil')
-    const { '0': searchParam } = useSearchParams()
+    const [value, setValue] = useState<number | null>(null)
+    const [type] = useState<keyof typeof LIST>('oil')
+    const [searchParams] = useSearchParams()
+
+    const navigate = useNavigate()
 
     useEffect(() => {
-        searchParam.forEach((val, index) => {
-            if (Number(index) === 0) setValue(val)
-            else setReturnUrl(val)
-        })
-    }, [searchParam])
+        const val = searchParams.get('kw')
+        if (val && !isNaN(Number(val))) {
+            setValue(Number(val))
+        }
+    }, [searchParams])
+
+    const getFilteredList = () => {
+        const list = LIST[type]
+        if (value === null) return []
+
+        const first = list[0]
+        const last = list[list.length - 1]
+
+        // اگر کمتر از همه بود
+        if (value < first.minKW) return list.filter((item) => item.minKW === first.minKW && item.maxKW === first.maxKW)
+
+        // اگر بیشتر از همه بود
+        if (value > last.maxKW) return list.filter((item) => item.minKW === last.minKW && item.maxKW === last.maxKW)
+
+        // بازه‌ی میانی
+        return list.filter((item) => value >= item.minKW && value <= item.maxKW)
+    }
 
     return (
         <div className='w-full h-full flex flex-col items-start justify-start relative'>
@@ -125,7 +167,6 @@ const ReceiptPage = () => {
                 <div className='flex flex-col'>
                     <div className='flex items-center justify-start gap-x-5'>
                         <div
-                            onClick={() => setType('oil')}
                             className={`flex items-center justify-center gap-y-2 flex-col shadow p-3 rounded-md cursor-default hover:shadow-xl duration-300 active:shadow ${
                                 type === 'oil' ? 'bg-[#FFBC41]' : ''
                             }`}
@@ -144,8 +185,8 @@ const ReceiptPage = () => {
                         </div> */}
                     </div>
                 </div>
-                <div className='flex flex-col gap-y-5 p-3 overflow-y-auto h-full max-h-[55vh]'>
-                    {LIST[type].map((item, index) => (
+                <div className='flex flex-col gap-y-5 overflow-y-auto h-full max-h-[55vh]'>
+                    {getFilteredList().map((item, index) => (
                         <div
                             key={index}
                             className='flex items-center justify-end shadow p-3 rounded-md hover:shadow-xl duration-300'
@@ -155,13 +196,14 @@ const ReceiptPage = () => {
                                     {item.title} {item.isInvertor ? '(اینورتر)' : ''}
                                 </span>
                                 <span>{item.price.toLocaleString('en')} ریال</span>
-                                <span dir='rtl'>{item.value} کیلووات</span>
+                                <span>{item.value} کیلووات</span>
                             </div>
                             <img src={item.image} alt='image' className='size-20 rounded-2xl ml-3' />
                         </div>
                     ))}
                 </div>
-                <MButton className='w-full mt-auto btn-lg'>
+
+                <MButton onClick={() => navigate('/')} className='w-full mt-auto btn-lg'>
                     ذخیره اطلاعات <Save />
                 </MButton>
             </div>
