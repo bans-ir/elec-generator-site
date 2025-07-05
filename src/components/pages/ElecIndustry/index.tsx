@@ -207,14 +207,25 @@ const ElecIndustryPage = () => {
                 </div>
 
                 <MButton
-                    onClick={() =>
+                    onClick={() => {
+                        const selectedItems = items.filter((item) => item.count > 0)
+                        localStorage.setItem(
+                            'selected-items',
+                            JSON.stringify(
+                                selectedItems.map((item) => ({
+                                    count: item.count,
+                                    title: item.title,
+                                    value: item.value
+                                }))
+                            )
+                        )
                         navigate(
                             `/phone-number?kw=${items.reduce(
                                 (acc, item) => acc + item.value * item.count,
                                 0
-                            )}&rt_url=elec-industry`
+                            )}&rt_url=elec-home`
                         )
-                    }
+                    }}
                     className='w-full mt-auto btn-lg'
                 >
                     محاسبه توان <Save />

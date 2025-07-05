@@ -33,7 +33,11 @@ const GetPhoneNumberPage = () => {
         }
         setLoading(true)
         try {
-            await axios.post('http://localhost:5000/phone', { phoneNumber, value })
+            await axios.post('http://localhost:5000/phone', {
+                phoneNumber,
+                value,
+                items: JSON.parse(localStorage.getItem('selected-items') || '[]')
+            })
             // Optionally handle success (e.g., show a message or redirect)
 
             navigate(`/receipt?kw=${value}&rt_url=${returnUrl}`)
