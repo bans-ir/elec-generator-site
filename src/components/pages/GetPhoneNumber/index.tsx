@@ -33,7 +33,7 @@ const GetPhoneNumberPage = () => {
         }
         setLoading(true)
         try {
-            await axios.post('http://localhost:5000/phone', {
+            await axios.post('http://api.power.bans.ir/phone', {
                 phoneNumber,
                 value,
                 items: JSON.parse(localStorage.getItem('selected-items') || '[]')
