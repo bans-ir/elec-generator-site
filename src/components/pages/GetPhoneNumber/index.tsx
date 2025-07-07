@@ -18,7 +18,7 @@ const GetPhoneNumberPage = () => {
 
     useEffect(() => {
         searchParam.forEach((val, index) => {
-            if (Number(index) === 0) setValue(val)
+            if (index === 'kw') setValue(val)
             else setReturnUrl(val)
         })
     }, [searchParam])
@@ -36,7 +36,7 @@ const GetPhoneNumberPage = () => {
             await axios.post('http://api.power.bans.ir/phone', {
                 phoneNumber,
                 value,
-                items: JSON.parse(localStorage.getItem('selected-items') || '[]')
+                items: localStorage.getItem('selected-items')
             })
             // Optionally handle success (e.g., show a message or redirect)
 
