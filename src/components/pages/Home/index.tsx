@@ -3,10 +3,17 @@ import { Link } from 'react-router-dom'
 import ElecHomeImage from '@assets/images/elec-home.png'
 import ElecIndustryImage from '@assets/images/Elec-industryjpg.png'
 import ElecProductImage from '@assets/images/electrical-equipment.png'
+import BansLogoImage from '@assets/images/logo.webp'
+
 const HomePage = () => {
     return (
         <div className='w-full h-full flex flex-col items-center justify-center relative'>
-            <h1 className='text-2xl relative xl:absolute xl:top-2 mb-5'>نرم افزار محاسبه انرژی</h1>
+            <img
+                src={BansLogoImage}
+                alt='elec home'
+                className='h-[70px] w-[200px] bg-black rounded-md text-2xl relative xl:absolute xl:top-2 mb-5'
+            />
+            <h1 className='text-2xl relative xl:absolute xl:top-24 mb-5'>نرم افزار محاسبه انرژی</h1>
 
             <div dir='rtl' className='grid md:grid-cols-2 xl:grid-cols-3 gap-5'>
                 <Link

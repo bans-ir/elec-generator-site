@@ -24,43 +24,28 @@ const ITEMS_LIST = [
         title: 'لامپ LED',
         value: 10,
         count: 0,
-        icon: <Lightbulb size={24} />
+        icon: <Lightbulb size={24} />,
+        type: 'array',
+        array: [10, 15, 20, 40, 50, 100],
+        arrayIndex: 0
     },
     {
-        title: 'کولر گازی 9000 BTU',
-        value: 900,
+        title: 'کولر گازی 1 BTU',
+        value: 9000,
         count: 0,
-        icon: <Snowflake size={24} />
+        icon: <Snowflake size={24} />,
+        type: 'array',
+        array: [9000, 12000, 18000, 22000, 28000, 30000],
+        arrayIndex: 0
     },
     {
-        title: 'کولر گازی 12000 BTU',
-        value: 1200,
+        title: 'کولر گازی 2 BTU',
+        value: 12000,
         count: 0,
-        icon: <Snowflake size={24} />
-    },
-    {
-        title: 'کولر گازی 18000 BTU',
-        value: 1800,
-        count: 0,
-        icon: <Snowflake size={24} />
-    },
-    {
-        title: 'کولر گازی 22000 BTU',
-        value: 2200,
-        count: 0,
-        icon: <Snowflake size={24} />
-    },
-    {
-        title: 'کولر گازی 28000 BTU',
-        value: 2700,
-        count: 0,
-        icon: <Snowflake size={24} />
-    },
-    {
-        title: 'کولر گازی 30000 BTU',
-        value: 3200,
-        count: 0,
-        icon: <Snowflake size={24} />
+        icon: <Snowflake size={24} />,
+        type: 'array',
+        array: [9000, 12000, 18000, 22000, 28000, 30000],
+        arrayIndex: 1
     },
     {
         title: 'تلویزیون 200 وات',
@@ -103,24 +88,75 @@ const ITEMS_LIST = [
         value: 500,
         count: 0,
         icon: <Video size={24} />
+    },
+    {
+        title: 'سایر',
+        value: 0,
+        count: 0,
+        icon: <Video size={24} />,
+        type: 'other',
+        array: [],
+        arrayIndex: 0
     }
 ]
 
-const ElecIndustryPage = () => {
+const ElecProductPage = () => {
     const navigate = useNavigate()
     const [items, setItems] = useState(ITEMS_LIST)
 
-    const onChangeValue = (type: 'increase' | 'decrease', toChangeIndex: number) =>
+    const onChangeValue = (type: 'increase' | 'decrease', toChangeIndex: number) => {
         setItems((prevState) =>
-            prevState.map((item, index) =>
-                index === toChangeIndex
-                    ? {
-                          ...item,
-                          value: type === 'increase' ? item.value + 5 : item.value !== 0 ? item.value - 5 : 0
-                      }
-                    : item
-            )
+            prevState.map((item, index) => {
+                if (index === toChangeIndex) {
+                    if (item.type === 'array') {
+                        const newArrayIndex =
+                            type === 'increase'
+                                ? item.arrayIndex !== item.array.length - 1
+                                    ? item.arrayIndex + 1
+                                    : item.arrayIndex
+                                : item.arrayIndex !== 0
+                                ? item.arrayIndex - 1
+                                : item.arrayIndex
+
+                        return {
+                            ...item,
+                            arrayIndex: newArrayIndex,
+                            value: item.array[newArrayIndex]
+                        }
+                    } else if (item.type === 'custom') {
+                        return {
+                            ...item,
+                            value: type === 'increase' ? item.value + 5 : item.value !== 0 ? item.value - 5 : 0
+                        }
+                    }
+
+                    return {
+                        ...item,
+                        value:
+                            type === 'increase'
+                                ? item.value === 0
+                                    ? 10
+                                    : item.value === 10
+                                    ? 50
+                                    : item.value === 50
+                                    ? 100
+                                    : item.value + 100
+                                : item.value === 0
+                                ? 0
+                                : item.value === 10
+                                ? 0
+                                : item.value === 50
+                                ? 10
+                                : item.value === 100
+                                ? 50
+                                : item.value - 100
+                    }
+                }
+
+                return item
+            })
         )
+    }
 
     const onChangeCount = (type: 'increase' | 'decrease', toChangeIndex: number) =>
         setItems((prevState) =>
@@ -144,21 +180,20 @@ const ElecIndustryPage = () => {
             </div>
 
             <div className='max-w-xl w-full mx-auto flex items-center justify-start relative mb-2'>
-                <span className='absolute left-12'>توان</span>
-                <span className='absolute left-[210px]'>تعداد</span>
+                <span className='absolute left-10 sm:left-12'>توان</span>
+                <span className='absolute left-[160px] sm:left-[210px]'>تعداد</span>
             </div>
 
             <div className='grid max-w-xl w-full h-full mx-auto'>
-                <div className='flex flex-col overflow-y-auto h-full max-h-[65vh]'>
+                <div className='flex flex-col overflow-y-auto h-full max-h-[62vh]'>
                     {items.map((item, index) => (
                         <div
                             key={index}
-                            className='flex flex-col items-center justify-between group relative py-2 border-b border-dashed border-neutral-500'
+                            className='flex flex-row-reverse items-center justify-between group relative py-2 border-b border-dashed border-neutral-500'
                         >
-                            <div className='flex items-end justify-end gap-x-2 ml-auto mb-5'>
+                            <div className='flex flex-col items-end justify-end gap-x-2 ml-auto mb-5'>
                                 <div className='flex flex-col items-end justify-end gap-y-1'>
-                                    <span className='font-medium text-base text-right'>{item.title}</span>
-                                    <span className='text-xs'>مقدار استفاده در ساعت</span>
+                                    <span className='font-medium text-base text-right max-w-[150px]'>{item.title}</span>
                                 </div>
                                 <div className='size-12 rounded-full bg-[#F0F2F5] group-hover:bg-[#FFBC41] duration-300 flex items-center justify-center'>
                                     {item.icon}
@@ -181,7 +216,7 @@ const ElecIndustryPage = () => {
                                         <Minus className='size-2 sm:size-4 shrink-0' />
                                     </MButton>
                                 </div>
-                                <div className='flex items-center justify-center gap-x-2 sm:gap-x-3 absolute left-[170px]'>
+                                <div className='flex items-center justify-center gap-x-2 sm:gap-x-3 absolute left-[130px] sm:left-[170px]'>
                                     <MButton
                                         onClick={() => onChangeCount('increase', index)}
                                         className='btn-dash aspect-square size-7 sm:size-10 shrink-0'
@@ -202,7 +237,20 @@ const ElecIndustryPage = () => {
                 </div>
 
                 <div className='w-full flex items-center justify-between text-[#121417] mb-5 text-lg pt-3 border-t-2 border-[#F0F2F5]'>
-                    <span>{(items.reduce((acc, item) => acc + item.value * item.count, 0) / 1000).toFixed(2)} KW</span>
+                    <div className='flex flex-col gap-y-2'>
+                        {(() => {
+                            const totalKW = items.reduce((acc, item) => acc + item.value * item.count, 0) / 1000
+                            const powerFactor = 0.85
+                            const totalKVA = totalKW / powerFactor
+
+                            return (
+                                <>
+                                    <span>{totalKW.toFixed(2)} KW</span>
+                                    <span>{totalKVA.toFixed(2)} kVA</span>
+                                </>
+                            )
+                        })()}
+                    </div>
                     <span>مصرف کل</span>
                 </div>
 
@@ -219,20 +267,21 @@ const ElecIndustryPage = () => {
                                 }))
                             )
                         )
+
                         navigate(
                             `/phone-number?kw=${items.reduce(
                                 (acc, item) => acc + item.value * item.count,
                                 0
-                            )}&rt_url=elec-home`
+                            )}&rt_url=elec-industry`
                         )
                     }}
                     className='w-full mt-auto btn-lg'
                 >
-                    محاسبه توان <Save />
+                    دریافت فایل محاسبه توان <Save />
                 </MButton>
             </div>
         </div>
     )
 }
 
-export default ElecIndustryPage
+export default ElecProductPage
