@@ -94,7 +94,7 @@ const GetPhoneNumberPage = () => {
             const response = await axios.post('http://localhost:5000/phone/verify', {
                 phoneNumber,
                 otp,
-                amount: value,
+                value,
                 items: localStorage.getItem('selected-items')
             })
             if (response.data.success === true) {
