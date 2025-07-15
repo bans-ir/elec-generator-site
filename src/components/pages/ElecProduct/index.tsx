@@ -31,8 +31,9 @@ const ITEMS_LIST = [
     },
     {
         title: 'کولر گازی 1 BTU',
-        value: 9000,
+        value: 900,
         count: 0,
+        isAc: true,
         icon: <Snowflake size={24} />,
         type: 'array',
         array: [900, 1200, 1800, 2200, 2800, 3000],
@@ -40,8 +41,9 @@ const ITEMS_LIST = [
     },
     {
         title: 'کولر گازی 2 BTU',
-        value: 12000,
+        value: 1200,
         count: 0,
+        isAc: true,
         icon: <Snowflake size={24} />,
         type: 'array',
         array: [900, 1200, 1800, 2200, 2800, 3000],
@@ -143,12 +145,14 @@ const ElecProductPage = () => {
                         return {
                             ...item,
                             arrayIndex: newArrayIndex,
-                            value: item.array[newArrayIndex]
+                            value: item.array[newArrayIndex],
+                            count: type === 'increase' && item.count === 0 ? item.count + 1 : item.count
                         }
                     } else if (item.type === 'custom') {
                         return {
                             ...item,
-                            value: type === 'increase' ? item.value + 5 : item.value !== 0 ? item.value - 5 : 0
+                            value: type === 'increase' ? item.value + 5 : item.value !== 0 ? item.value - 5 : 0,
+                            count: type === 'increase' && item.count === 0 ? item.count + 1 : item.count
                         }
                     }
 
@@ -171,7 +175,8 @@ const ElecProductPage = () => {
                                 ? 10
                                 : item.value === 100
                                 ? 50
-                                : item.value - 100
+                                : item.value - 100,
+                        count: type === 'increase' && item.count === 0 ? item.count + 1 : item.count
                     }
                 }
 
@@ -230,7 +235,7 @@ const ElecProductPage = () => {
                                     >
                                         <Plus className='size-2 sm:size-4 shrink-0' />
                                     </MButton>
-                                    <span>{item.value}</span>
+                                    <span>{item.isAc ? item.value * 10 : item.value}</span>
                                     <MButton
                                         onClick={() => onChangeValue('decrease', index)}
                                         className='aspect-square size-7 sm:size-10 shrink-0'

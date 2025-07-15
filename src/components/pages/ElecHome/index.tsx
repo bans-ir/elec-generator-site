@@ -31,7 +31,8 @@ const ITEMS_LIST = [
     },
     {
         title: 'کولر گازی BTU',
-        value: 9000,
+        isAc: true,
+        value: 900,
         count: 0,
         icon: <Snowflake size={24} />,
         type: 'array',
@@ -196,7 +197,7 @@ const ElecProductPage = () => {
                                     >
                                         <Plus className='size-2 sm:size-4 shrink-0' />
                                     </MButton>
-                                    <span>{item.value}</span>
+                                    <span>{item.isAc ? item.value * 10 : item.value}</span>
                                     <MButton
                                         onClick={() => onChangeValue('decrease', index)}
                                         className='aspect-square size-7 sm:size-10 shrink-0'
