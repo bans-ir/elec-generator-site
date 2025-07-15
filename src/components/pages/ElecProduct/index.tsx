@@ -35,7 +35,7 @@ const ITEMS_LIST = [
         count: 0,
         icon: <Snowflake size={24} />,
         type: 'array',
-        array: [9000, 12000, 18000, 22000, 28000, 30000],
+        array: [900, 1200, 1800, 2200, 2800, 3000],
         arrayIndex: 0
     },
     {
@@ -44,7 +44,7 @@ const ITEMS_LIST = [
         count: 0,
         icon: <Snowflake size={24} />,
         type: 'array',
-        array: [9000, 12000, 18000, 22000, 28000, 30000],
+        array: [900, 1200, 1800, 2200, 2800, 3000],
         arrayIndex: 1
     },
 
@@ -226,14 +226,14 @@ const ElecProductPage = () => {
                                 <div className='flex items-center justify-center gap-x-2 sm:gap-x-3 absolute left-0'>
                                     <MButton
                                         onClick={() => onChangeValue('increase', index)}
-                                        className='btn-dash aspect-square size-7 sm:size-10 shrink-0'
+                                        className='aspect-square size-7 sm:size-10 shrink-0'
                                     >
                                         <Plus className='size-2 sm:size-4 shrink-0' />
                                     </MButton>
                                     <span>{item.value}</span>
                                     <MButton
                                         onClick={() => onChangeValue('decrease', index)}
-                                        className='btn-dash aspect-square size-7 sm:size-10 shrink-0'
+                                        className='aspect-square size-7 sm:size-10 shrink-0'
                                     >
                                         <Minus className='size-2 sm:size-4 shrink-0' />
                                     </MButton>
@@ -241,14 +241,14 @@ const ElecProductPage = () => {
                                 <div className='flex items-center justify-center gap-x-2 sm:gap-x-3 absolute left-[130px] sm:left-[170px]'>
                                     <MButton
                                         onClick={() => onChangeCount('increase', index)}
-                                        className='btn-dash aspect-square size-7 sm:size-10 shrink-0'
+                                        className='aspect-square size-7 sm:size-10 shrink-0'
                                     >
                                         <Plus className='size-2 sm:size-4 shrink-0' />
                                     </MButton>
                                     <span>{item.count}</span>
                                     <MButton
                                         onClick={() => onChangeCount('decrease', index)}
-                                        className='btn-dash aspect-square size-7 sm:size-10 shrink-0'
+                                        className='aspect-square size-7 sm:size-10 shrink-0'
                                     >
                                         <Minus className='size-2 sm:size-4 shrink-0' />
                                     </MButton>
