@@ -68,7 +68,7 @@ const GetPhoneNumberPage = () => {
         }
         setLoading(true)
         try {
-            await axios.post('http://api.power.bans.ir/phone', {
+            await axios.post('https://api.power.bans.ir/phone', {
                 phoneNumber
             })
 
@@ -91,7 +91,7 @@ const GetPhoneNumberPage = () => {
         }
         setLoading(true)
         try {
-            const response = await axios.post('http://api.power.bans.ir/phone/verify', {
+            const response = await axios.post('https://api.power.bans.ir/phone/verify', {
                 phoneNumber,
                 otp,
                 value,
